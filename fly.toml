@@ -1,0 +1,18 @@
+# fly.toml
+app = "snailycad-backend"  # Vervang dit door de naam van je app
+
+[build]
+  # Als je Docker gebruikt:
+  dockerfile = "Dockerfile"
+
+[env]
+  # Stel je omgevingsvariabelen in
+  DATABASE_URL = "postgres://user:password@hostname:5432/database"
+  CORS_ORIGIN = "https://snailycad-frontend.fly.dev"
+  NEXT_PUBLIC_CLIENT_URL = "https://snailycad-frontend.fly.dev"
+  NEXT_PUBLIC_PROD_ORIGIN = "https://snailycad-frontend.fly.dev"
+  JWT_SECRET = "supersterkewachtwoord"
+
+[deploy]
+  # Stel je deploy instellingen in (indien van toepassing)
+  release_command = "npm run migrate"  # bijvoorbeeld om database-migraties uit te voeren
